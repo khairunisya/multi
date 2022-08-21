@@ -1,0 +1,16 @@
+[Unit]
+Description=XRay XTLS Service ( %i )
+Documentation=https://github.com/XTLS/Xray-core
+After=syslog.target network-online.target
+
+[Service]
+User=root
+NoNewPrivileges=true
+ExecStart=/etc/xray/core/xray -c /etc/xray/config/xray/%i.json
+LimitNPROC=10000
+LimitNOFILE=1000000
+Restart=on-failure
+RestartPreventExitStatus=23
+
+[Install]
+WantedBy=multi-user.target
