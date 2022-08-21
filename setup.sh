@@ -47,13 +47,13 @@ function check_architecture() {
 
 function install_requirement() {
     #wget ${SCRIPT_URL}/cf.sh && chmod +x cf.sh && ./cf.sh
-    #hostname=$(cat /root/domain)
+    hostname=sg1trws.jrtunnel.us
     # Membuat Folder untuk menyimpan data utama
     mkdir -p /etc/xray/
     mkdir -p /etc/xray/core/
     mkdir -p /etc/xray/log/
     mkdir -p /etc/xray/config/
-    #echo "$hostname" >/etc/xray/domain.conf
+    echo "$hostname" >/etc/xray/domain.conf
 
     # Mengupdate repo dan hapus program yang tidak dibutuhkan
     apt update -y
