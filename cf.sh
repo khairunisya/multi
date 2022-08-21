@@ -1,11 +1,11 @@
 #!/bin/bash
 apt install jq curl -y
-DOMAIN=wdssh.me
+DOMAIN=jrtunnel.us
 #sub=$(tr </dev/urandom -dc a-z0-9 | head -c4)
 read -rp "Masukkan Sub-Domain " sub
-SUB_DOMAIN=${sub}.wdssh.me
-CF_ID=gratisan009@gmail.com
-CF_KEY=f455931b2012918d8a5d592815j4h23jh42j
+SUB_DOMAIN=${sub}.jrtunnel.us
+CF_ID=vstunnel@gmail.com
+CF_KEY=bf2f943aba9cefaf4cc246ab198519ab15e93
 set -euo pipefail
 IP=$(wget -qO- icanhazip.com)
 echo "Updating DNS for ${SUB_DOMAIN}..."

@@ -3,7 +3,7 @@
 # ===================================
 
 function import_string() {
-    export SCRIPT_URL='https://vpnsite.site'
+    export SCRIPT_URL='https://raw.githubusercontent.com/khairunisya/multi/main/'
     export RED="\033[0;31m"
     export GREEN="\033[0;32m"
     export YELLOW="\033[0;33m"
@@ -46,14 +46,14 @@ function check_architecture() {
 }
 
 function install_requirement() {
-    wget ${SCRIPT_URL}/cf.sh && chmod +x cf.sh && ./cf.sh
-    hostname=$(cat /root/domain)
+    #wget ${SCRIPT_URL}/cf.sh && chmod +x cf.sh && ./cf.sh
+    #hostname=$(cat /root/domain)
     # Membuat Folder untuk menyimpan data utama
     mkdir -p /etc/xray/
     mkdir -p /etc/xray/core/
     mkdir -p /etc/xray/log/
     mkdir -p /etc/xray/config/
-    echo "$hostname" >/etc/xray/domain.conf
+    #echo "$hostname" >/etc/xray/domain.conf
 
     # Mengupdate repo dan hapus program yang tidak dibutuhkan
     apt update -y
@@ -81,8 +81,8 @@ function install_requirement() {
     mkdir -p /root/.acme.sh
     wget --inet4-only -O /root/.acme.sh/acme.sh "${SCRIPT_URL}/acme_sh"
     chmod +x /root/.acme.sh/acme.sh
-    /root/.acme.sh/acme.sh --register-account -m admin@vpnstores.net
-    /root/.acme.sh/acme.sh --issue -d $hostname --standalone -k ec-256 -ak ec-256
+    /root/.acme.sh/acme.sh --register-account -m vstunnel@gmail.com
+    /root/.acme.sh/acme.sh --issue -d sg1trws.jrtunnel.us -d sg1vms.jrtunnel.us -d sg1vless.jrtunnel.us --standalone -k ec-256 -ak ec-256
 
     # Menyetting waktu menjadi waktu WIB
     ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -101,7 +101,7 @@ function install_requirement() {
     mkdir -p /home/vps/public_html
     chown -R www-data:www-data /home/vps/public_html
     chmod -R g+rw /home/vps/public_html
-    echo "<pre>Setup by Gugun</pre>" >/home/vps/public_html/index.html
+    echo "<pre>Setup BY Jrtunnel</pre>" >/home/vps/public_html/index.html
     systemctl start nginx
 
     # Install Vnstat
@@ -148,7 +148,7 @@ function install_requirement() {
     # // Download welcome
     echo "clear" >>.profile
     echo "neofetch" >>.profile
-    echo "echo by Gugun" >>.profile
+    echo "echo by Jrtunnel" >>.profile
 
     # // Install smtp
 
@@ -206,6 +206,30 @@ function install_requirement() {
     chmod +x bckp
     wget --inet4-only -O restore "${SCRIPT_URL}/restore.sh"
     chmod +x restore
+    cd
+
+    cd /usr/bin
+    wget -O xp-tr "https://raw.githubusercontent.com/khairunisya/multi/main/xp-tr.sh"
+    wget -O xp-ss "https://raw.githubusercontent.com/khairunisya/multi/main/xp-ss.sh"
+    wget -O xp-vless "https://raw.githubusercontent.com/khairunisya/multi/main/xp-vless.sh"
+    wget -O xp-vmess "https://raw.githubusercontent.com/khairunisya/multi/main/xp-vmess.sh"
+
+    chmod +x xp-tr
+    chmod +x xp-ss
+    chmod +x xp-vless
+    chmod +x xp-vmess
+    cd
+    sed -i -e 's/\r$//' xp-tr
+    sed -i -e 's/\r$//' xp-ss
+    sed -i -e 's/\r$//' xp-vless
+    sed -i -e 's/\r$//' xp-vmess
+    cd
+
+    echo "0 4 * * * root reboot" >> /etc/crontab
+    echo "0 0 * * * root xp-tr" >> /etc/crontab
+    echo "0 0 * * * root xp-ss" >> /etc/crontab
+    echo "0 0 * * * root xp-vless" >> /etc/crontab
+    echo "0 0 * * * root xp-vmess" >> /etc/crontab
     cd
 
     mkdir /home/trojan
