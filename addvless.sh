@@ -50,7 +50,7 @@ exp=$(date -d "$Jumlah_Hari days" +"%Y-%m-%d")
 hariini=$(date -d "0 days" +"%Y-%m-%d")
 
 # // Get UUID
-uuidnya=$(uuidgen)
+uuid=$(uuidgen)
 
 # // Generate New UUID & Domain
 domain=$(cat /etc/xray/domain.conf)
@@ -84,7 +84,7 @@ echo -e " IP          = ${IPNYA}"
 echo -e " Address     = ${domain}"
 echo -e " Port TLS    = ${tls_port}"
 echo -e " Port NonTLS = ${nontls_port}"
-echo -e " UUID        = ${uuidnya}"
+echo -e " UUID        = ${uuid}"
 echo -e "==============================="
 echo -e " GRPC VLESS CONFIG LINK"
 echo -e ' ```'${vless_grpc}'```'
