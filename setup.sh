@@ -47,7 +47,7 @@ function check_architecture() {
 
 function install_requirement() {
     #wget ${SCRIPT_URL}/cf.sh && chmod +x cf.sh && ./cf.sh
-    hostname=jpvms.serverisp.xyz
+    hostname=invms.serverisp.xyz
     # Membuat Folder untuk menyimpan data utama
     mkdir -p /etc/xray/
     mkdir -p /etc/xray/core/
@@ -82,7 +82,7 @@ function install_requirement() {
     wget --inet4-only -O /root/.acme.sh/acme.sh "${SCRIPT_URL}/acme_sh"
     chmod +x /root/.acme.sh/acme.sh
     /root/.acme.sh/acme.sh --register-account -m vstunnel@gmail.com
-    /root/.acme.sh/acme.sh --issue -d jpvms.serverisp.xyz -d jptrws.serverisp.xyz -d jpvless.serverisp.xyz --standalone -k ec-256 -ak ec-256
+    /root/.acme.sh/acme.sh --issue -d invms.serverisp.xyz -d intrws.serverisp.xyz -d invless.serverisp.xyz --standalone -k ec-256 -ak ec-256
 
     # Menyetting waktu menjadi waktu WIB
     ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
