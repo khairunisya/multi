@@ -219,17 +219,13 @@ function install_requirement() {
     chmod +x xp-vless
     chmod +x xp-vmess
     cd
-    sed -i -e 's/\r$//' xp-tr
-    sed -i -e 's/\r$//' xp-ss
-    sed -i -e 's/\r$//' xp-vless
-    sed -i -e 's/\r$//' xp-vmess
-    cd
+
 
     echo "0 0 * * * root clearlog && reboot" >> /etc/crontab
-    #echo "0 0 * * * root xp-tr" >> /etc/crontab
-    #echo "0 0 * * * root xp-ss" >> /etc/crontab
-    #echo "0 0 * * * root xp-vless" >> /etc/crontab
-    #echo "0 0 * * * root xp-vmess" >> /etc/crontab
+    echo "0 0 * * * root xp-tr" >> /etc/crontab
+    echo "0 0 * * * root xp-ss" >> /etc/crontab
+    echo "0 0 * * * root xp-vless" >> /etc/crontab
+    echo "0 0 * * * root xp-vmess" >> /etc/crontab
     cd
 
     mkdir /home/trojan

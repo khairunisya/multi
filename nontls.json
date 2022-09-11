@@ -15,7 +15,7 @@
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/vmess"
+          "path": "/jrtunnel"
         }
       }
     },
@@ -30,7 +30,7 @@
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/vless"
+          "path": "/jrtunnel"
         }
       }
     },

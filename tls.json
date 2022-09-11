@@ -12,22 +12,22 @@
         "clients": [],
         "decryption": "none",
         "fallbacks": [{
-            "path": "/trojan",
+            "path": "/jrtunnel",
             "dest": 34801,
             "xver": 1
           },
           {
-            "path": "/vmess",
+            "path": "/jrtunnel",
             "dest": 34802,
             "xver": 1
           },
           {
-            "path": "/vless",
+            "path": "/jrtunnel",
             "dest": 34803,
             "xver": 1
           },
           {
-            "path": "/ss-ws",
+            "path": "/jrtunnel",
             "dest": 2012
           },
           {
@@ -63,7 +63,7 @@
         "security": "none",
         "wsSettings": {
           "acceptProxyProtocol": true,
-          "path": "/trojan"
+          "path": "/jrtunnel"
         }
       }
     },
@@ -80,7 +80,7 @@
         "security": "none",
         "wsSettings": {
           "acceptProxyProtocol": true,
-          "path": "/vmess"
+          "path": "/jrtunnel"
         }
       }
     },
@@ -97,7 +97,7 @@
         "security": "none",
         "wsSettings": {
           "acceptProxyProtocol": true,
-          "path": "/vless"
+          "path": "/jrtunnel"
         }
       }
     },
@@ -113,7 +113,7 @@
         "network": "grpc",
         "grpcSettings": {
           "acceptProxyProtocol": true,
-          "serviceName": "Trojan-GRPC"
+          "serviceName": "jrtunnel-grpc"
         }
       }
     },
@@ -130,7 +130,7 @@
         "security": "none",
         "grpcSettings": {
           "acceptProxyProtocol": true,
-          "serviceName": "Vmess-GRPC"
+          "serviceName": "jrtunnel-grpc"
         }
       }
     },
@@ -146,7 +146,7 @@
         "network": "grpc",
         "grpcSettings": {
           "acceptProxyProtocol": true,
-          "serviceName": "Vless-GRPC"
+          "serviceName": "jrtunnel-grpc"
         }
       }
     },
@@ -161,7 +161,7 @@
         "network": "ws",
         "security": "none",
         "wsSettings": {
-          "path": "/ss-ws"
+          "path": "/jrtunnel"
         }
       },
       "sniffing": {
@@ -183,7 +183,7 @@
         "network": "grpc",
         "security": "none",
         "grpcSettings": {
-          "serviceName": "ss-grpc"
+          "serviceName": "jrtunnel-grpc"
         }
       },
       "sniffing": {
