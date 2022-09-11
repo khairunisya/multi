@@ -23,12 +23,6 @@
     chmod +x xp-vless
     chmod +x xp-vmess
 
-    cd
-
-    sed -i -e 's/\r$//' xp-tr
-    sed -i -e 's/\r$//' xp-ss
-    sed -i -e 's/\r$//' xp-vless
-    sed -i -e 's/\r$//' xp-vmess
 
     cd
 
