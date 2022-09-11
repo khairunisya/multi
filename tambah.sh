@@ -32,7 +32,6 @@
 
     cd
 
-    echo "0 0 * * * root clearlog && reboot" >> /etc/crontab
     echo "0 0 * * * root xp-tr" >> /etc/crontab
     echo "0 0 * * * root xp-vless" >> /etc/crontab
     echo "0 0 * * * root xp-vmess" >> /etc/crontab
