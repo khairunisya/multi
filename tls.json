@@ -12,12 +12,12 @@
         "clients": [],
         "decryption": "none",
         "fallbacks": [{
-            "path": "/jrtunnel-vmess",
+            "path": "/jrtunnel-trojan",
             "dest": 34801,
             "xver": 1
           },
           {
-            "path": "/jrtunnel-trojan",
+            "path": "/jrtunnel-vmess",
             "dest": 34802,
             "xver": 1
           },
@@ -63,7 +63,7 @@
         "security": "none",
         "wsSettings": {
           "acceptProxyProtocol": true,
-          "path": "/jrtunnel-vmess"
+          "path": "/jrtunnel-trojan"
         }
       }
     },
@@ -80,7 +80,7 @@
         "security": "none",
         "wsSettings": {
           "acceptProxyProtocol": true,
-          "path": "/jrtunnel-trojan"
+          "path": "/jrtunnel-vmess"
         }
       }
     },
