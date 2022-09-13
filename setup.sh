@@ -221,11 +221,11 @@ function install_requirement() {
     cd
 
 
-    echo "0 0 * * * root clearlog && reboot" >> /etc/crontab
-    echo "0 0 * * * root xp-tr" >> /etc/crontab
-    echo "0 0 * * * root xp-ss" >> /etc/crontab
-    echo "0 0 * * * root xp-vless" >> /etc/crontab
+    echo "0 5 * * * root clearlog && reboot" >> /etc/crontab
     echo "0 0 * * * root xp-vmess" >> /etc/crontab
+    echo "0 0 * * * root xp-vless" >> /etc/crontab
+    #echo "0 0 * * * root xp-ss" >> /etc/crontab
+    echo "0 0 * * * root xp-tr" >> /etc/crontab
     cd
 
     mkdir /home/trojan
