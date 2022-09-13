@@ -66,15 +66,15 @@ cat /etc/xray/config/xray/nontls.json | jq '.inbounds[0].settings.clients += [{"
 echo -e "Vmess $username $exp $uuid" >>/etc/xray/vmess-client.conf
 
 cat >/etc/xray/xray-cache/vmess-tls-gun-$username.json <<END
-{"add":"${domain}","aid":"0","host":"","id":"${uuid}","net":"grpc","path":"Vmess-GRPC","port":"${tls_port}","ps":"${username}","scy":"none","sni":"","tls":"tls","type":"gun","v":"2"}
+{"add":"${domain}","aid":"0","host":"","id":"${uuid}","net":"grpc","path":"jrtunnel-grpc","port":"${tls_port}","ps":"${username}","scy":"none","sni":"","tls":"tls","type":"gun","v":"2"}
 END
 
 cat >/etc/xray/xray-cache/vmess-tls-ws-$username.json <<END
-{"add":"${domain}","aid":"0","host":"","id":"${uuid}","net":"ws","path":"/vmess","port":"${tls_port}","ps":"${username}","scy":"none","sni":"${domain}","tls":"tls","type":"","v":"2"}
+{"add":"${domain}","aid":"0","host":"","id":"${uuid}","net":"ws","path":"/jrtunnel-vmess","port":"${tls_port}","ps":"${username}","scy":"none","sni":"${domain}","tls":"tls","type":"","v":"2"}
 END
 
 cat >/etc/xray/xray-cache/vmess-nontls-$username.json <<END
-{"add":"${domain}","aid":"0","host":"","id":"${uuid}","net":"ws","path":"/vmess","port":"${nontls_port}","ps":"${username}","scy":"none","sni":"","tls":"","type":"","v":"2"}
+{"add":"${domain}","aid":"0","host":"","id":"${uuid}","net":"ws","path":"/jrtunnel-vmess","port":"${nontls_port}","ps":"${username}","scy":"none","sni":"","tls":"","type":"","v":"2"}
 END
 
 # // Vmess Link
