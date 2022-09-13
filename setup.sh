@@ -47,7 +47,7 @@ function check_architecture() {
 
 function install_requirement() {
     #wget ${SCRIPT_URL}/cf.sh && chmod +x cf.sh && ./cf.sh
-    hostname=sg4vms.serverisp.xyz
+    hostname=sg1vms.serverisp.xyz
     # Membuat Folder untuk menyimpan data utama
     mkdir -p /etc/xray/
     mkdir -p /etc/xray/core/
@@ -82,7 +82,7 @@ function install_requirement() {
     wget --inet4-only -O /root/.acme.sh/acme.sh "${SCRIPT_URL}/acme_sh"
     chmod +x /root/.acme.sh/acme.sh
     /root/.acme.sh/acme.sh --register-account -m vstunnel@gmail.com
-    /root/.acme.sh/acme.sh --issue -d sg4vms.serverisp.xyz -d sg4trws.serverisp.xyz -d sg4vless.serverisp.xyz --standalone -k ec-256 -ak ec-256
+    /root/.acme.sh/acme.sh --issue -d sg1vms.serverisp.xyz -d sg1trws.serverisp.xyz -d sg1vless.serverisp.xyz --standalone -k ec-256 -ak ec-256
 
     # Menyetting waktu menjadi waktu WIB
     ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -209,23 +209,14 @@ function install_requirement() {
     cd
 
     cd /usr/bin
-    wget -O xp-tr "https://raw.githubusercontent.com/khairunisya/multi/main/xp-tr.sh"
-    wget -O xp-ss "https://raw.githubusercontent.com/khairunisya/multi/main/xp-ss.sh"
-    wget -O xp-vless "https://raw.githubusercontent.com/khairunisya/multi/main/xp-vless.sh"
-    wget -O xp-vmess "https://raw.githubusercontent.com/khairunisya/multi/main/xp-vmess.sh"
+    wget -O xp "https://raw.githubusercontent.com/khairunisya/multi/main/xp.sh"
 
-    chmod +x xp-tr
-    chmod +x xp-ss
-    chmod +x xp-vless
-    chmod +x xp-vmess
+    chmod +x xp
     cd
 
 
     echo "0 5 * * * root clearlog && reboot" >> /etc/crontab
-    echo "0 0 * * * root xp-vmess" >> /etc/crontab
-    echo "0 0 * * * root xp-vless" >> /etc/crontab
-    #echo "0 0 * * * root xp-ss" >> /etc/crontab
-    echo "0 0 * * * root xp-tr" >> /etc/crontab
+    echo "0 0 * * * root xp" >> /etc/crontab
     cd
 
     mkdir /home/trojan
