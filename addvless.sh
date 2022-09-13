@@ -63,7 +63,7 @@ nontls_port=$(cat /etc/xray/config/xray/nontls.json | grep -w port | awk '{print
 cat /etc/xray/config/xray/tls.json | jq '.inbounds[3].settings.clients += [{"id": "'${uuid}'","email": "'${username}'"}]' >/etc/xray/config/xray/tls.json.tmp && mv /etc/xray/config/xray/tls.json.tmp /etc/xray/config/xray/tls.json
 cat /etc/xray/config/xray/tls.json | jq '.inbounds[6].settings.clients += [{"id": "'${uuid}'","email": "'${username}'"}]' >/etc/xray/config/xray/tls.json.tmp && mv /etc/xray/config/xray/tls.json.tmp /etc/xray/config/xray/tls.json
 cat /etc/xray/config/xray/nontls.json | jq '.inbounds[1].settings.clients += [{"id": "'${uuid}'","email": "'${username}'"}]' >/etc/config/config/xray/nontls.json.tmp && mv /etc/xray/config/xray/nontls.json.tmp /etc/xray/config/xray/nontls.json
-echo -e "Vless $username $exp $uuid" >>/etc/xray/vless-client.conf
+echo -e "Vless $username $exp" >>/etc/xray/vless-client.conf
 
 # // Vless Link
 vless_nontls="vless://${uuid}@${domain}:${nontls_port}?path=%2Fjrtunnel-vless&security=none&encryption=none&type=ws#${username}"
