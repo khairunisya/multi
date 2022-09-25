@@ -62,8 +62,8 @@ elif [[ $OS == 'debian' ]]; then
 	apt-get update
 	apt-get install -y iptables resolvconf qrencode
     apt-get install -y -t buster-backports wireguard
-	apt install -y wireguard-tools iptables iptables-persistent
-	apt install -y linux-headers-$(uname -r)
+	#apt install -y wireguard-tools iptables iptables-persistent
+	#apt install -y linux-headers-$(uname -r)
 elif [[ ${OS} == 'centos' ]]; then
 	curl -Lo /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
 	yum -y update
@@ -115,14 +115,11 @@ WG_RUNNING=$?
 
 # Tambahan
 cd /usr/bin
-wget -O addwg "http://demo.jrtunnel.com/multiws/main/wireguard/addwg.sh"
-wget -O delwg "http://demo.jrtunnel.com/multiws/main/wireguard/delwg.sh"
-wget -O renewwg "http://demo.jrtunnel.com/multiws/main/wireguard/renewwg.sh"
-wget http://demo.jrtunnel.com/multiws/main/wireguard/xp
+wget -O addwg "https://raw.githubusercontent.com/khairunisya/multi/main/addwg.sh"
+wget -O delwg "https://raw.githubusercontent.com/khairunisya/multi/main/delwg.sh"
+wget -O renewwg "https://raw.githubusercontent.com/khairunisya/multi/main/renewwg.sh"
 chmod +x addwg
 chmod +x delwg
 chmod +x renewwg
-chmod +x xp
-cd
-echo "0 0 * * * root xp" >> /etc/crontab
+
 rm -f /root/wg.sh

@@ -211,13 +211,11 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     # // Install python2
     apt install python2 -y >/dev/null 2>&1
 
-    cd
-
     #installwg
     wget https://raw.githubusercontent.com/khairunisya/multi/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 
     #install bbr
-    wget https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S wg ./bbr.sh
+    wget https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S bbr ./bbr.sh
 
     cd
 
@@ -245,12 +243,6 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     chmod +x xray-cert
     wget --inet4-only -O menu "${SCRIPT_URL}/menu.sh"
     chmod +x menu
-    wget --inet4-only -O addwg "${SCRIPT_URL}/addwg.sh"
-    chmod +x addwg
-    wget --inet4-only -O delwg "${SCRIPT_URL}/delwg.sh"
-    chmod +x delwg
-    wget --inet4-only -O renewwg "${SCRIPT_URL}/renewwg.sh"
-    chmod +x renewwg
     
     wget --inet4-only -O addss "${SCRIPT_URL}/addss.sh"
     chmod +x addss
