@@ -211,9 +211,6 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     # // Install python2
     apt install python2 -y >/dev/null 2>&1
 
-    #installwg
-    wget https://raw.githubusercontent.com/khairunisya/multi/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
-
     #install bbr
     wget https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S bbr ./bbr.sh
 

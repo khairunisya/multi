@@ -375,4 +375,3 @@ install_bbr() {
 }
 
 install_bbr 2>&1 | tee ${cur_dir}/install_bbr.log
-rm -f /root/bbr.sh
