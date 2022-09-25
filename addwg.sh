@@ -26,16 +26,16 @@ clear
 # Load params
 source /etc/wireguard/params
 source /var/lib/ssnvpn-pro/ipvps.conf
-if [[ "$IP" = "" ]]; then
+if [[ "$MYIP" = "" ]]; then
 SERVER_PUB_IP=$(wget -qO- ipinfo.io/ip);
 else
-SERVER_PUB_IP=$IP
+SERVER_PUB_IP=$MYIP
 fi
 source /var/lib/ssnvpn-pro/ipvps.conf
-if [[ "$IP2" = "" ]]; then
-domen=`cat /etc/xray/domain`
+if [[ "$MYIP" = "" ]]; then
+domen=`cat /etc/xray/domain.conf`
 else
-domain=$IP2
+domain=$MYIP
 fi
 echo ""
 #portwg="$(cat ~/log-install.txt | grep -w "Wireguard" | cut -d: -f2|sed 's/ //g')"
