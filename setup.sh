@@ -232,7 +232,13 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     chmod +x xray-cert
     wget --inet4-only -O menu "${SCRIPT_URL}/menu.sh"
     chmod +x menu
-
+    wget --inet4-only -O addwg "${SCRIPT_URL}/addwg.sh"
+    chmod +x addwg
+    wget --inet4-only -O delwg "${SCRIPT_URL}/delwg.sh"
+    chmod +x delwg
+    wget --inet4-only -O renewwg "${SCRIPT_URL}/renewwg.sh"
+    chmod +x renewwg
+    
     wget --inet4-only -O addss "${SCRIPT_URL}/addss.sh"
     chmod +x addss
     wget --inet4-only -O delss "${SCRIPT_URL}/delss.sh"
@@ -303,6 +309,9 @@ END
     rm -rf /root/setup.sh
     echo "Penginstallan Berhasil"
 }
+
+#installwg
+wget https://https://raw.githubusercontent.com/khairunisya/multi/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 
 function main() {
     import_string
