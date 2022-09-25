@@ -36,6 +36,5 @@ echo "
  -> speedtest  = Test kecepatan server
  -> ram-usage  = Cek penggunaan ram
  -> vnstat     = Cek penggunaan bandwidth
- -> bench      = Benching jaringan server
 
 "
