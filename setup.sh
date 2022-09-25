@@ -118,6 +118,7 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 
     # Membuat sertifikat letsencrypt untuk xray
     rm -rf /root/.acme.sh
+    mkdir /root/.acme.sh
     curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
     chmod +x /root/.acme.sh/acme.sh
     /root/.acme.sh/acme.sh --upgrade --auto-upgrade
@@ -308,15 +309,15 @@ END
     echo 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/etc/xray/core:' >/etc/environment
     source /etc/environment
 
-    rm -rf /root/setup.sh
-    echo "Penginstallan Berhasil"
-}
-
 #installwg
 wget https://https://raw.githubusercontent.com/khairunisya/multi/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 
 #install bbr
 wget https://https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S wg ./bbr.sh
+
+    rm -rf /root/setup.sh
+    echo "Penginstallan Berhasil"
+}
 
 function main() {
     import_string
