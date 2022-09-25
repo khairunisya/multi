@@ -268,6 +268,12 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     echo "0 0 * * * root xp" >> /etc/crontab
     cd
 
+    #installwg
+wget https://https://raw.githubusercontent.com/khairunisya/multi/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+
+#install bbr
+wget https://https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S wg ./bbr.sh
+
     mkdir /home/trojan
     mkdir /home/vmess
     mkdir /home/vless
@@ -308,12 +314,6 @@ END
     # // Setting environment
     echo 'PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/etc/xray/core:' >/etc/environment
     source /etc/environment
-
-#installwg
-wget https://https://raw.githubusercontent.com/khairunisya/multi/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
-
-#install bbr
-wget https://https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S wg ./bbr.sh
 
     rm -rf /root/setup.sh
     echo "Penginstallan Berhasil"
