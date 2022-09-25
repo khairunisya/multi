@@ -211,6 +211,16 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     # // Install python2
     apt install python2 -y >/dev/null 2>&1
 
+    cd
+
+    #installwg
+    wget https://raw.githubusercontent.com/khairunisya/multi/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+
+    #install bbr
+    wget https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S wg ./bbr.sh
+
+    cd
+
     # // Download menu
     cd /usr/bin
     wget --inet4-only -O addvmess "${SCRIPT_URL}/addvmess.sh"
@@ -266,14 +276,6 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 
     echo "0 5 * * * root clearlog && reboot" >> /etc/crontab
     echo "0 0 * * * root xp" >> /etc/crontab
-    cd
-
-    #installwg
-    wget https://raw.githubusercontent.com/khairunisya/multi/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
-
-    #install bbr
-    wget https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S wg ./bbr.sh
-
     cd
 
     mkdir /home/trojan
