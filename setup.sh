@@ -269,10 +269,12 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     cd
 
     #installwg
-wget https://https://raw.githubusercontent.com/khairunisya/multi/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+    wget https://raw.githubusercontent.com/khairunisya/multi/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 
-#install bbr
-wget https://https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S wg ./bbr.sh
+    #install bbr
+    wget https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S wg ./bbr.sh
+
+    cd
 
     mkdir /home/trojan
     mkdir /home/vmess
