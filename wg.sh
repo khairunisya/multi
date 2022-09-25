@@ -27,7 +27,6 @@ exit 0
 fi
 # ==================================================
 # Link Hosting Kalian
-fisabiliyusri="demo.jrtunnel.com/multiws/main/wireguard"
 
 # Check OS version
 if [[ -e /etc/debian_version ]]; then
