@@ -258,8 +258,10 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 
     cd /usr/bin
     wget -O xp "https://raw.githubusercontent.com/khairunisya/multi/main/xp.sh"
+    wget -O clearlog "https://raw.githubusercontent.com/khairunisya/multi/main/clearlog.sh"
 
     chmod +x xp
+    chmod +x clearlog
     cd
 
 
