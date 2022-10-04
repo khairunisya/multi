@@ -264,9 +264,9 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     chmod +x clearlog
     cd
 
-
-    echo "0 0 * * * root clearlog && reboot" >> /etc/crontab
     echo "0 0 * * * root xp" >> /etc/crontab
+    echo "0 0 * * * root clearlog && reboot" >> /etc/crontab
+    
     cd
 
     mkdir /home/trojan
