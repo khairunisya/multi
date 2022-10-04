@@ -263,7 +263,7 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     cd
 
 
-    echo "0 5 * * * root clearlog && reboot" >> /etc/crontab
+    echo "0 0 * * * root clearlog && reboot" >> /etc/crontab
     echo "0 0 * * * root xp" >> /etc/crontab
     cd
 
