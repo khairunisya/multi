@@ -46,8 +46,8 @@ function check_architecture() {
 }
 
 function install_requirement() {
-    #wget ${SCRIPT_URL}/cf.sh && chmod +x cf.sh && ./cf.sh
-    hostname=sg1.xrayjrt.me
+    wget -q --show-progress ${SCRIPT_URL}/cf.sh && chmod +x cf.sh && ./cf.sh
+    hostname=$(cat /root/domain)
     # Membuat Folder untuk menyimpan data utama
     mkdir -p /etc/xray/
     mkdir -p /etc/xray/core/
@@ -123,7 +123,7 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     chmod +x /root/.acme.sh/acme.sh
     /root/.acme.sh/acme.sh --upgrade --auto-upgrade
     /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
-    /root/.acme.sh/acme.sh --issue -d sg1.xrayjrt.me -d sg1-grpc.xrayjrt.me -d sg1trws.xrayjrt.me -d sg1tr.xrayjrt.me -d sg1vless.xrayjrt.me -d sg1vless-grpc.xrayjrt.me -d sg1ss.xrayjrt.me -d sg1tr-grpc.xrayjrt.me --standalone -k ec-256 -ak ec-256
+    /root/.acme.sh/acme.sh --issue -d $hostname --standalone -k ec-256 -ak ec-256
     echo -e " [INFO] Successfully"
     sleep 1
 
@@ -166,16 +166,16 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     rm -rf /root/vnstat-2.9
 
     # Install Xray
-    wget --inet4-only -O /etc/xray/core/xray.zip "${SCRIPT_URL}/xray.zip"
+    wget -q --show-progress -O /etc/xray/core/xray.zip "${SCRIPT_URL}/xray.zip"
     cd /etc/xray/core/
     unzip -o xray.zip
     rm -f xray.zip
     cd /root/
     mkdir -p /etc/xray/log/xray/
     mkdir -p /etc/xray/config/xray/
-    wget --inet4-only -qO- "${SCRIPT_URL}/tls.json" | jq '.inbounds[0].streamSettings.xtlsSettings.certificates += [{"certificateFile": "'/root/.acme.sh/${hostname}_ecc/fullchain.cer'","keyFile": "'/root/.acme.sh/${hostname}_ecc/${hostname}.key'"}]' >/etc/xray/config/xray/tls.json
-    wget --inet4-only -qO- "${SCRIPT_URL}/nontls.json" >/etc/xray/config/xray/nontls.json
-    wget --inet4-only -O /etc/systemd/system/xray@.service "${SCRIPT_URL}/xray_service"
+    wget -q --show-progress -qO- "${SCRIPT_URL}/tls.json" | jq '.inbounds[0].streamSettings.xtlsSettings.certificates += [{"certificateFile": "'/root/.acme.sh/${hostname}_ecc/fullchain.cer'","keyFile": "'/root/.acme.sh/${hostname}_ecc/${hostname}.key'"}]' >/etc/xray/config/xray/tls.json
+    wget -q --show-progress -qO- "${SCRIPT_URL}/nontls.json" >/etc/xray/config/xray/nontls.json
+    wget -q --show-progress -O /etc/systemd/system/xray@.service "${SCRIPT_URL}/xray_service"
     systemctl daemon-reload
     systemctl stop xray@tls
     systemctl disable xray@tls
@@ -205,67 +205,67 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
     rm -rf wondershaper
     echo > /home/limit
     apt install msmtp-mta ca-certificates bsd-mailx -y
-    wget --inet4-only -O /etc/msmtprc "${SCRIPT_URL}/msmtprc"
+    wget -q --show-progress -O /etc/msmtprc "${SCRIPT_URL}/msmtprc"
     chown -R www-data:www-data /etc/msmtprc
 
     # // Install python2
     apt install python2 -y >/dev/null 2>&1
 
     #install bbr
-    wget https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S bbr ./bbr.sh
+    wget -q --show-progress https://raw.githubusercontent.com/khairunisya/multi/main/bbr.sh && chmod +x bbr.sh && screen -S bbr ./bbr.sh
 
     cd
 
     # // Download menu
     cd /usr/bin
-    wget --inet4-only -O addvmess "${SCRIPT_URL}/addvmess.sh"
+    wget -q --show-progress -O addvmess "${SCRIPT_URL}/addvmess.sh"
     chmod +x addvmess
-    wget --inet4-only -O addvless "${SCRIPT_URL}/addvless.sh"
+    wget -q --show-progress -O addvless "${SCRIPT_URL}/addvless.sh"
     chmod +x addvless
-    wget --inet4-only -O addtrojan "${SCRIPT_URL}/addtrojan.sh"
+    wget -q --show-progress -O addtrojan "${SCRIPT_URL}/addtrojan.sh"
     chmod +x addtrojan
-    wget --inet4-only -O delvmess "${SCRIPT_URL}/delvmess.sh"
+    wget -q --show-progress -O delvmess "${SCRIPT_URL}/delvmess.sh"
     chmod +x delvmess
-    wget --inet4-only -O delvless "${SCRIPT_URL}/delvless.sh"
+    wget -q --show-progress -O delvless "${SCRIPT_URL}/delvless.sh"
     chmod +x delvless
-    wget --inet4-only -O deltrojan "${SCRIPT_URL}/deltrojan.sh"
+    wget -q --show-progress -O deltrojan "${SCRIPT_URL}/deltrojan.sh"
     chmod +x deltrojan
-    wget --inet4-only -O renewvmess "${SCRIPT_URL}/renewvmess.sh"
+    wget -q --show-progress -O renewvmess "${SCRIPT_URL}/renewvmess.sh"
     chmod +x renewvmess
-    wget --inet4-only -O renewvless "${SCRIPT_URL}/renewvless.sh"
+    wget -q --show-progress -O renewvless "${SCRIPT_URL}/renewvless.sh"
     chmod +x renewvless
-    wget --inet4-only -O renewtrojan "${SCRIPT_URL}/renewtrojan.sh"
+    wget -q --show-progress -O renewtrojan "${SCRIPT_URL}/renewtrojan.sh"
     chmod +x renewtrojan
-    wget --inet4-only -O xray-cert "${SCRIPT_URL}/cert.sh"
+    wget -q --show-progress -O xray-cert "${SCRIPT_URL}/cert.sh"
     chmod +x xray-cert
-    wget --inet4-only -O menu "${SCRIPT_URL}/menu.sh"
+    wget -q --show-progress -O menu "${SCRIPT_URL}/menu.sh"
     chmod +x menu
     
-    wget --inet4-only -O addss "${SCRIPT_URL}/addss.sh"
+    wget -q --show-progress -O addss "${SCRIPT_URL}/addss.sh"
     chmod +x addss
-    wget --inet4-only -O delss "${SCRIPT_URL}/delss.sh"
+    wget -q --show-progress -O delss "${SCRIPT_URL}/delss.sh"
     chmod +x delss
 
-    wget --inet4-only -O autobackup "${SCRIPT_URL}/autobackup.sh"
+    wget -q --show-progress -O autobackup "${SCRIPT_URL}/autobackup.sh"
     chmod +x autobackup
-    wget --inet4-only -O backup "${SCRIPT_URL}/backup.sh"
+    wget -q --show-progress -O backup "${SCRIPT_URL}/backup.sh"
     chmod +x backup
-    wget --inet4-only -O bckp "${SCRIPT_URL}/bckp.sh"
+    wget -q --show-progress -O bckp "${SCRIPT_URL}/bckp.sh"
     chmod +x bckp
-    wget --inet4-only -O restore "${SCRIPT_URL}/restore.sh"
+    wget -q --show-progress -O restore "${SCRIPT_URL}/restore.sh"
     chmod +x restore
     cd
 
     cd /usr/bin
-    wget -O xp "https://raw.githubusercontent.com/khairunisya/multi/main/xp.sh"
-    wget -O clearlog "https://raw.githubusercontent.com/khairunisya/multi/main/clearlog.sh"
+    wget -q --show-progress -O xp "https://raw.githubusercontent.com/khairunisya/multi/main/xp.sh"
+    wget -q --show-progress -O clearlog "https://raw.githubusercontent.com/khairunisya/multi/main/clearlog.sh"
 
     chmod +x xp
     chmod +x clearlog
     cd
 
     echo "0 0 * * * root xp" >> /etc/crontab
-    echo "0 0 * * * root clearlog && reboot" >> /etc/crontab
+    echo "0 5 * * * root clearlog && reboot" >> /etc/crontab
     
     cd
 
